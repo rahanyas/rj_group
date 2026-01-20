@@ -1,0 +1,253 @@
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+:root {
+  --bg-main: #0b0d14;
+  --bg-card: #121526;
+  --accent: #8b5cf6;
+  --accent-2: #6366f1;
+  --text-main: #f2f2f2;
+  --text-muted: #b5b8d6;
+}
+
+/* =========================================================
+   RESET / BASE
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.game {
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  perspective: 1200px; /* required for 3D */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.game-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.hero-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin: 0.6rem 0;
+}
+
+.hero-text p {
+  max-width: 520px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.hero-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Button */
+.btn-primary {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+}
+
+/* Hero media */
+.hero-media {
+  border-radius: 18px;
+}
+
+/* =========================================================
+   IMAGE HOVER (GLOBAL)
+========================================================= */
+.image-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.4s ease;
+}
+
+.image-hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Subtle polish on hover */
+.image-hover:hover img {
+  filter: brightness(1.1);
+}
+
+.image-hover:hover {
+  box-shadow:
+    0 20px 60px rgba(139,92,246,0.35),
+    0 0 40px rgba(99,102,241,0.4);
+}
+
+/* =========================================================
+   GAMEPLAY GALLERY
+========================================================= */
+.game-gallery {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.game-gallery h2 {
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.35s ease;
+}
+
+.gallery-card:hover {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+}
+
+/* =========================================================
+   CHARACTERS
+========================================================= */
+.game-characters {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.character-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.character-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  padding-bottom: 1.5rem;
+  transition: box-shadow 0.35s ease;
+}
+
+.character-card:hover {
+  box-shadow: 0 14px 32px rgba(0,0,0,0.45);
+}
+
+.character-card h3 {
+  margin-top: 1rem;
+}
+
+.character-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   WORLD SECTION
+========================================================= */
+.game-world {
+  padding: 5rem 5%;
+}
+
+.world-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.world-wrapper img {
+  border-radius: 18px;
+}
+
+.world-text h2 {
+  margin-bottom: 1rem;
+}
+
+.world-text p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+.game-cta {
+  padding: 5rem 5%;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a1f3c, #0b0d14);
+}
+
+.game-cta h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin: auto;
+  }
+
+  .gallery-grid,
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .world-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
